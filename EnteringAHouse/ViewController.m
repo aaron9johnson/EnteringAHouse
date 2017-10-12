@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (strong, nonatomic) IBOutlet UIImageView *img;
 
 @end
 
@@ -16,13 +17,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    UIBarButtonItem *beginning = [[UIBarButtonItem alloc]
+                                initWithTitle:@"Beginning"
+                                style:UIBarButtonItemStylePlain
+                                target:self
+                                action:@selector(start)];
+    self.navigationItem.rightBarButtonItem = beginning;
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)start{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 
